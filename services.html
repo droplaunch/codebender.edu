@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | CodeBender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: #1c1c1e;
+      --accent-color: #00ffc3;
+      --text-color: #f5f5f5;
+      --border-color: #3a3a3c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Share Tech Mono', monospace;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar li a:hover {
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      letter-spacing: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 255, 195, 0.2);
+    }
+
+    .card h2 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #ccc;
+    }
+
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>What We Offer at CodeBender</h1>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Scratch Programming</h2>
+      <p>Learn visual coding with Scratch — ideal for kids and beginners to understand logic, events, loops, and animations.</p>
+    </div>
+    <div class="card">
+      <h2>Python Basics</h2>
+      <p>Understand core programming concepts like variables, loops, functions, and basic automation using Python.</p>
+    </div>
+    <div class="card">
+      <h2>App & Web Dev</h2>
+      <p>Design beginner-friendly websites and simple apps using HTML, CSS, JS, and MIT App Inventor. No prior experience needed!</p>
+    </div>
+    <div class="card">
+      <h2>Automation & AI Tools</h2>
+      <p>Intro to AI, chatbots, automation using platforms like Zapier, and how developers can build smarter workflows.</p>
+    </div>
+    <div class="card">
+      <h2>1-on-1 Mentorship</h2>
+      <p>Personalized help sessions for coding doubts, project building, or exam prep. Tailored to your speed and goals.</p>
+    </div>
+    <div class="card">
+      <h2>Project-Based Courses</h2>
+      <p>Mini-projects like to-do apps, simple games, portfolio websites, and automation bots — learn by doing!</p>
+    </div>
+  </section>
+</body>
+
+</html>

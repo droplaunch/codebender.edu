@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | CodeBender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: #1c1c1e;
+      --accent-color: #00ffc3;
+      --text-color: #f5f5f5;
+      --border-color: #3a3a3c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Share Tech Mono', monospace;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar li a:hover {
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 255, 195, 0.2);
+    }
+
+    .card h2 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #ccc;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 2rem;
+      transition: background-color 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: #ffffff;
+      color: var(--bg-color);
+    }
+
+    /* Loading Screen Styling */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loading-text {
+      color: var(--accent-color);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      font-family: 'Share Tech Mono', monospace;
+      text-transform: uppercase;
+      animation: typing 3s steps(40) 1s 1 normal both, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .fade-in {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .fade-in.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Tutor Section */
+    .tutor-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+    }
+
+    .tutor-card h3 {
+      color: var(--accent-color);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .tutor-card p {
+      color: #ccc;
+    }
+
+    /* Footer Social Icons */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+    }
+
+    footer a {
+      color: var(--accent-color);
+      margin: 0 1rem;
+      font-size: 1.8rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+    sub {
+      font-size: 0.8em;
+      vertical-align: super;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading-screen">
+    <div class="loading-text">Initializing CodeBender... <br> Please Wait...</div>
+  </div>
+
+  <div class="fade-in">
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Welcome to CodeBender</h1>
+      <p>Your one-stop destination for learning coding through hands-on projects and mentorship!</p>
+      <a href="services.html" class="cta-btn">Explore Our Services</a>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Scratch Programming</h2>
+        <p>Learn visual coding with Scratch — ideal for kids and beginners to understand logic, events, loops, and animations.</p>
+      </div>
+      <div class="card">
+        <h2>Python Basics</h2>
+        <p>Understand core programming concepts like variables, loops, functions, and basic automation using Python.</p>
+      </div>
+      <div class="card">
+        <h2>App & Web Dev</h2>
+        <p>Design beginner-friendly websites and simple apps using HTML, CSS, JS, and MIT App Inventor. No prior experience needed!</p>
+      </div>
+      <div class="card">
+        <h2>Automation & AI Tools</h2>
+        <p>Intro to AI, chatbots, automation using platforms like Zapier, and how developers can build smarter workflows.</p>
+      </div>
+      <div class="card">
+        <h2>1-on-1 Mentorship</h2>
+        <p>Personalized help sessions for coding doubts, project building, or exam prep. Tailored to your speed and goals.</p>
+      </div>
+      <div class="card">
+        <h2>Project-Based Courses</h2>
+        <p>Mini-projects like to-do apps, simple games, portfolio websites, and automation bots — learn by doing!</p>
+      </div>
+    </section>
+
+    <!-- Tutor Section -->
+    <section class="tutor-section">
+      <h2 class="tutor-heading" style="text-align: center; margin-bottom: 2rem; color: var(--accent-color);">Meet Our Tutors</h2>
+      <div class="grid">
+        <div class="tutor-card">
+          <h3>Haricharan</h3>
+          <p>Expert in Python and App Development. Haricharan's sessions focus on understanding the core concepts while building real-world apps.</p>
+        </div>
+        <div class="tutor-card">
+          <h3>Aarsh</h3>
+          <p>Experienced in web development and automation. Aarsh helps students build functional and responsive websites and web applications.</p>
+        </div>
+        <div class="tutor-card">
+          <h3>Kaushik</h3>
+          <p>Skilled in game development and Scratch programming. Kaushik focuses on making coding fun through interactive games and projects.</p>
+        </div>
+        <div class="tutor-card">
+          <h3>Kavin</h3>
+          <p>Specializes in AI and automation tools. Kavin’s projects integrate automation with coding, teaching students how to build intelligent workflows.</p>
+        </div>
+        <div class="tutor-card">
+          <h3>Mritunjay</h3>
+          <p>Passionate about data science and machine learning. Mritunjay helps students explore the fundamentals of AI and data analysis.</p>
+        </div>
+        <div class="tutor-card">
+          <h3>Gokul Shenoy</h3>
+          <p>Gokul teaches Python, web development, and app design. His sessions are tailored to students aiming for interactive and creative projects.</p>
+        </div>
+      </div>
+    </section>
+    <div id="subscribe" style="text-align: center; margin: 2rem 0;">
+      <h2 style="color: var(--accent-color);">Subscribe for Updates</h2>
+      <p>Stay updated with our latest courses, projects, and coding tips!</p>
+      <a href="newsotw.html" class="cta-btn">Subscribe Now</a>
+    </div>
+    </div>
+    <!-- Footer with Social Icons -->
+    <footer>
+      <a href="https://github.com/droplaunch" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:gokulshenoy13@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/thedigitalerror" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/gokul-sanjeev-shenoy-841158166/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </footer>
+  </div>
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        document.getElementById("loading-screen").style.display = "none";
+        document.querySelector(".fade-in").classList.add("visible");
+      }, 4000);
+    }
+  </script>
+</body>
+
+</html>
